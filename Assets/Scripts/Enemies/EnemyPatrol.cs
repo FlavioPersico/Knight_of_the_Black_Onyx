@@ -13,9 +13,11 @@ using Random = UnityEngine.Random;
 public class EnemyPatrol : MonoBehaviour
 {
 	[SerializeField] private Player _target;
-	[SerializeField] private bool IsBoss;
+	[SerializeField] private bool IsIdle;
+
 	private Enemy _enemy;
 	private bool InPatrol;
+	private Rigidbody2D rb_enemy;
 
 	private Vector3 randomPosition;
 	private Vector2 direction;
@@ -24,20 +26,36 @@ public class EnemyPatrol : MonoBehaviour
 	{
 		_target = FindObjectOfType<Player>();
 		_enemy = GetComponent<Enemy>();
+		if(IsIdle)
+		{
+			rb_enemy = _enemy.GetComponent<Rigidbody2D>();
+		}
 		InPatrol = true;
 	}
 
 	private void FixedUpdate()
 	{
-		if(!InPatrol || IsBoss)
+		if(!InPatrol || _enemy.GetIsBoss())
 		{
+			if(IsIdle)
+			{
+				rb_enemy.constraints = RigidbodyConstraints2D.None;
+			}
 			direction = _target.transform.position - transform.position;
 			_enemy.Move(direction.normalized, _target);
 		}
 		else
 		{
 			InPatrol = true;
-			Roaming();
+			if(!IsIdle)
+			{
+				Roaming();
+			}
+			else
+			{
+				rb_enemy.constraints = RigidbodyConstraints2D.FreezeAll;
+			}
+
 		}
 	}
 
@@ -67,9 +85,4 @@ public class EnemyPatrol : MonoBehaviour
 			}
 		}
 	}
-
-	/*private void OnTriggerExit2D(Collider2D collision)
-	{
-		InPatrol = true;
-	}*/
 }

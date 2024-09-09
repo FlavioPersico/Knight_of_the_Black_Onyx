@@ -3420,8 +3420,8 @@ MonoBehaviour:
   AutoSelectAfterShow: 0
   AutoSelectTarget: {fileID: 0}
   Id:
-    Category: None
-    Name: None
+    Category: MainMenu
+    Name: BFSPresents
     Custom: 0
   TargetOrientation: 0
 --- !u!114 &490261221
@@ -3630,12 +3630,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -1920.0001, y: 0, z: 0}
-      ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: -1920.0001, y: 1243, z: 0}
+      ToValue: {x: -1034, y: 1243, z: 0}
+      CurrentValue: {x: -1034, y: 1243, z: 0}
       Enabled: 1
       AnimationType: 0
-      StartPosition: {x: 0, y: 0, z: 0}
+      StartPosition: {x: -1034, y: 1243, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -3900,12 +3900,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0, y: 0, z: 0}
-      ToValue: {x: 1920.0001, y: 0, z: 0}
-      CurrentValue: {x: 1920.0001, y: 0, z: 0}
+      FromValue: {x: -1034, y: 1243, z: 0}
+      ToValue: {x: 1920.0001, y: 1243, z: 0}
+      CurrentValue: {x: 1920.0001, y: 1243, z: 0}
       Enabled: 1
       AnimationType: 1
-      StartPosition: {x: 0, y: 0, z: 0}
+      StartPosition: {x: -1034, y: 1243, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}

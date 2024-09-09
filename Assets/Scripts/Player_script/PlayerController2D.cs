@@ -78,8 +78,9 @@ namespace Assets.Scripts.Player_script
 					 maxSpeed /= 4;
 				 }
 
-				 velocity.x = Mathf.MoveTowards(velocity.x, Input.x * maxSpeed, acceleration * Time.fixedDeltaTime);
-				 Turn(velocity.x);
+				velocity.x = Mathf.MoveTowards(velocity.x, Input.x * maxSpeed, acceleration * Time.fixedDeltaTime);
+				GameManager._singleton.PlayFloorSound();
+				Turn(velocity.x);
 			 }
 
 			 if (IsGrounded)

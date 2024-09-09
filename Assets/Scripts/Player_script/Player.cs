@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.XR;
 using static UnityEngine.GraphicsBuffer;
 using System.Collections;
 using System.Threading;
+using TMPro.EditorUtilities;
 
 namespace Assets.Scripts.Player_script
 {
@@ -88,10 +89,10 @@ namespace Assets.Scripts.Player_script
 		public override void Die()
 		{
 			_animation.Die();
-			_audioSource.PlayOneShot(_deathClip, 1f);
 			totalLife -= 1;
 			if(totalLife <= 0)
 			{
+				_audioSource.PlayOneShot(_deathClip, 1f);
 				Destroy(gameObject, 3f);
 			}
 			else
@@ -143,7 +144,7 @@ namespace Assets.Scripts.Player_script
 
 		public override void ReceiveDamage(int damage)
 		{
-			if (_animation.GetState() != PlayerState.Block && isImmortal == false)
+			if (_animation.GetState() != PlayerState.Block && isImmortal == false && health.currentHealth > 0)
 			{
 				base.ReceiveDamage(damage);
 				_animation.Hit();
@@ -170,7 +171,7 @@ namespace Assets.Scripts.Player_script
 
 				foreach (Collider2D destructGameObject in destruct)
 				{
-					Destroy(destructGameObject.gameObject);
+					Destroy(destructGameObject.gameObject, 0.5f);
 				}
 				lastAttack = Time.time;
 		}
@@ -237,6 +238,11 @@ namespace Assets.Scripts.Player_script
 			if(collision.gameObject.CompareTag("BossZone"))
 			{
 				GameManager._singleton.BossZoneActivate();
+			}
+
+			if (collision.gameObject.CompareTag("SecretZone"))
+			{
+				GameManager._singleton.SecretZoneActivate();
 			}
 		}
 

@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] private GameObject _bossZone;
+	[SerializeField] private GameObject _secretZone;
 	[SerializeField] private Canvas _gameCanvas;
 	[SerializeField] private AudioClip _rockFloorClip;
 	[SerializeField] private AudioClip _grassFloorClip;
 	[SerializeField] private AudioClip _bossClip;
+	private string _typeFloor;
+	private string lastTypeFloor;
+	private float lastStepSound;
+	private bool IsSameFloor;
+
+	[SerializeField] private float stepSoundControl;
 
 	public static GameManager _singleton;
 
@@ -17,19 +25,38 @@ public class GameManager : MonoBehaviour
 		_singleton = this;
 	}
 
-	public void PlayFloorSound(string typeFloor)
+	public void SetTypeFloor(string typeFloor)
 	{
-		switch (typeFloor)
+		_typeFloor = typeFloor;
+	}
+
+	public void PlayFloorSound()
+	{
+		if(Time.time > lastStepSound + stepSoundControl || !IsSameFloor)
 		{
-			case "Grass":
-				SoundControl.audioMain.PlayOneShot(_grassFloorClip);
-				break;
-			case "Rock":
-				SoundControl.audioMain.PlayOneShot(_rockFloorClip);
-				break;
-			default:
-				break;
+			switch (_typeFloor)
+			{
+				case "GrassFloor":
+					SoundControl.audioMain.PlayOneShot(_grassFloorClip, 50f);
+					lastStepSound = Time.time;
+					lastTypeFloor = _typeFloor;
+					IsSameFloor = (lastTypeFloor == _typeFloor);
+					break;
+				case "RockFloor":
+					SoundControl.audioMain.PlayOneShot(_rockFloorClip, 50f);
+					lastStepSound = Time.time;
+					lastTypeFloor = _typeFloor;
+					IsSameFloor = (lastTypeFloor == _typeFloor);
+					break;
+				default:
+					break;
+			}
 		}
+	}
+
+	public void SecretZoneActivate()
+	{
+		_secretZone.SetActive(true);
 	}
 
 	public void BossZoneActivate()

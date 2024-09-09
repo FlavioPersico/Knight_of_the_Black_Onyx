@@ -13,4 +13,18 @@ MonoBehaviour:
   m_Name: StreamIdDatabase
   m_EditorClassIdentifier: 
   Database:
-    Items: []
+    Items:
+    - Category: GameLevels
+      Name: Level1End
+    - Category: GameLevels
+      Name: Level2End
+    - Category: GameLevels
+      Name: Level3End
+    - Category: GameLevels
+      Name: Level4End
+    - Category: GameLevels
+      Name: Level5End
+    - Category: GameLevels
+      Name: Level6End
+    - Category: None
+      Name: None

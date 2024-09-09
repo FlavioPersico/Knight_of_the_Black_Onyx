@@ -162,127 +162,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0
+      name: Moss_0
       rect:
         serializedVersion: 2
         x: 0
         y: 16
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbacb9754e2ba3ab0800000000000000
-      internalID: -5027509340213622084
+      spriteID: 629a757a21842d94f87eece2d6937415
+      internalID: -233960310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1
+      name: Moss_1
       rect:
         serializedVersion: 2
         x: 16
         y: 16
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a2918aa5d01d0fd0800000000000000
-      internalID: -2374222918679686493
+      spriteID: 27c62cc56ba8bba448357bd12b8b87b5
+      internalID: -148129894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3
+      name: Moss_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85d040bc441f144785a40509602597c
+      internalID: -2034084904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moss_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f31205e63c870ea0800000000000000
-      internalID: -5906598218874874896
+      spriteID: 1ecec08fde12f8140973336cc042dd82
+      internalID: -145592996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4
+      name: Moss_4
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf00de4547699c6e0800000000000000
-      internalID: -1816755548282093316
+      spriteID: 473610fd114e8f04081874ec074e2ff3
+      internalID: -543159475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5
+      name: Moss_5
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c129b93bb97edb10800000000000000
-      internalID: 2008176328888099268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca7be4610311d65f0800000000000000
-      internalID: -761933863725385812
+      spriteID: 672cae20d979d7048b76f07a42620cc0
+      internalID: 468713111
       vertices: []
       indices: 
       edges: []
@@ -298,12 +298,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      0: -5027509340213622084
-      1: -2374222918679686493
-      2: -761933863725385812
-      3: -5906598218874874896
-      4: -1816755548282093316
-      5: 2008176328888099268
+      Moss_0: -233960310
+      Moss_1: -148129894
+      Moss_2: -2034084904
+      Moss_3: -145592996
+      Moss_4: -543159475
+      Moss_5: 468713111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

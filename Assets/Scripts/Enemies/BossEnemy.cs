@@ -19,6 +19,10 @@ public class BossEnemy : Enemy
 	{
 		UIManager._singleton.UpdateBossLife(false, health);
 		base.ChangeHealth(health);
+		if(health <= 0 ) 
+		{
+			UIManager._singleton.AddBossName("");
+		}
 	}
 
 	private void BossLife()

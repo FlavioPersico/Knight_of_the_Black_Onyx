@@ -17,6 +17,7 @@ namespace Assets.Scripts.Enemies
 		private EnemyController2D _controller;
 		private EnemyAnimation _animation;
 
+		[SerializeField] protected bool IsBoss;
 		[SerializeField] private GameObject _attackPoint;
 		[SerializeField] private GameObject _defensePoint;
 		[SerializeField] public float radius;
@@ -31,6 +32,11 @@ namespace Assets.Scripts.Enemies
 			_animation = GetComponent<EnemyAnimation>();
 			_audioSource = GetComponent<AudioSource>();
 			SetUpEnemy(enemyHealth);
+		}
+
+		public bool GetIsBoss()
+		{
+			return IsBoss;
 		}
 
 		public virtual void SetUpEnemy(int healthParam)
@@ -59,9 +65,8 @@ namespace Assets.Scripts.Enemies
 			{
 				_controller.Input = Vector2.zero;
 				_controller.Input.x = direction.x;
-				/*if (direction.y >= 3) //To follow on platforms
+				/*if (_flyPoint != null)
 				{
-					Debug.Log(direction.y);
 					_controller.Input.y = direction.y;
 				}*/
 			}
@@ -149,8 +154,8 @@ namespace Assets.Scripts.Enemies
 		}
 		private void OnDrawGizmos()
 		{
-			//Gizmos.DrawWireSphere(_attackPoint.transform.position, radius);
-			//Gizmos.DrawWireSphere(_defensePoint.transform.position, radius);
+			Gizmos.DrawWireSphere(_attackPoint.transform.position, radius);
+			Gizmos.DrawWireSphere(_defensePoint.transform.position, radius);
 		}
 	}
 }

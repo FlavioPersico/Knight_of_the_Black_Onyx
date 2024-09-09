@@ -56,7 +56,7 @@ namespace Assets.Scripts.Enemies
                 }
 
                 velocity.x = Mathf.MoveTowards(velocity.x, Input.x * maxSpeed, acceleration * Time.fixedDeltaTime);
-                Turn(velocity.x);
+				Turn(velocity.x);
             }
             
             if (IsGrounded)

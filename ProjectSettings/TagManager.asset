@@ -12,6 +12,7 @@ TagManager:
   - Collectable
   - RockFloor
   - GrassFloor
+  - SecretZone
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - Destructable
+  - Interactable
   - 
   - 
   - 

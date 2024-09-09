@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: ProgressorIdDatabase
   m_EditorClassIdentifier: 
   Database:
-    Items: []
+    Items:
+    - Category: LevelProgress
+      Name: LevelChange
+    - Category: None
+      Name: None
