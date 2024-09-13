@@ -1,3 +1,4 @@
+using Assets.Scripts.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private AudioClip _rockFloorClip;
 	[SerializeField] private AudioClip _grassFloorClip;
 	[SerializeField] private AudioClip _bossClip;
+	[SerializeField] private LootPool _lootPool;
 	private string _typeFloor;
 	private string lastTypeFloor;
 	private float lastStepSound;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
 	private void Awake()
 	{
 		_singleton = this;
+		_lootPool = GetComponent<LootPool>();
 	}
 
 	public void SetTypeFloor(string typeFloor)
@@ -65,5 +68,29 @@ public class GameManager : MonoBehaviour
 		_gameCanvas.worldCamera = _bossZone.GetComponent<Camera>();
 		SoundControl.audioMain.clip = _bossClip;
 		SoundControl.audioMain.Play();
+	}
+
+	public void GetCoins(Collider2D coins)
+	{
+		int coinValue = coins.GetComponent<Coins>().GetCoinsScore();
+		UIManager._singleton.UpdateScore(coinValue);
+		Destroy(coins.gameObject);
+	}
+
+	public Potions ReturnLoot()
+	{
+		int totalPoolItemsIndex = (_lootPool.TotalPoolItems()-1);
+		Potions randomLootPrefab = _lootPool.GetPoolItem(Random.Range(0, totalPoolItemsIndex));
+		float randomSpawnProbability = Random.Range(0.0f, 1.0f);
+
+		float spanwProbability = randomLootPrefab.SpanwProbability();
+
+		Debug.Log(spanwProbability);
+
+		if (spanwProbability >= randomSpawnProbability)
+		{
+			return randomLootPrefab;
+		}
+		return null;
 	}
 }

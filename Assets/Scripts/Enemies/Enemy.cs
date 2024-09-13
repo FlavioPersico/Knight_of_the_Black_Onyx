@@ -14,8 +14,8 @@ namespace Assets.Scripts.Enemies
     public class Enemy : Character
     {
 		[SerializeField] protected float _attackDistance;
-		private EnemyController2D _controller;
-		private EnemyAnimation _animation;
+		protected EnemyController2D _controller;
+		protected EnemyAnimation _animation;
 
 		[SerializeField] protected bool IsBoss;
 		[SerializeField] private GameObject _attackPoint;
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Enemies
 		[SerializeField] public LayerMask _playerMask;
 		[SerializeField] protected int enemyHealth;
 		[SerializeField] private int enemyPoints;
-		private float lastAttack;
+		protected float lastAttack;
 
 		protected override void Start()
 		{
@@ -65,10 +65,6 @@ namespace Assets.Scripts.Enemies
 			{
 				_controller.Input = Vector2.zero;
 				_controller.Input.x = direction.x;
-				/*if (_flyPoint != null)
-				{
-					_controller.Input.y = direction.y;
-				}*/
 			}
 			else
 			{
@@ -109,6 +105,7 @@ namespace Assets.Scripts.Enemies
 			UIManager._singleton.UpdateScore(enemyPoints);
 			EffectManager.Instance.Blink(this);
 			Destroy(gameObject,1f);
+			GenerateRandomLoot();
 		}
 
 		public void endAttacking()
@@ -141,16 +138,9 @@ namespace Assets.Scripts.Enemies
 
 		private void GenerateRandomLoot()
 		{
-			/*GameObject randomLootPrefab = pickUpPrefab[Random.Range(0, pickUpPrefab.Length)];
-			float randomSpawnProbability = Random.Range(0.0f, 1.0f);
-
-			float spanwProbability = randomLootPrefab.GetComponent<PickUp>().SpawnProbability();
-
-			Debug.Log(spanwProbability);
-			if (spanwProbability >= randomSpawnProbability)
-			{
-				Instantiate(randomLootPrefab, transform.position, Quaternion.identity);
-			}*/
+			Potions loot = GameManager._singleton.ReturnLoot();
+			var cloneLoot = Instantiate(loot, transform.position, Quaternion.identity);
+			cloneLoot.name = loot.name;
 		}
 		private void OnDrawGizmos()
 		{

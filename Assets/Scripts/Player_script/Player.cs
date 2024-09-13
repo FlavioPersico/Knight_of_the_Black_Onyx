@@ -134,7 +134,6 @@ namespace Assets.Scripts.Player_script
 		public void ChangeHealth(int health)
 		{
 			Debug.Log($"Health Changed! {health}");
-			UIManager._singleton.UpdatePlayerUI("Heart", true, health);
 			if (health <= 0)
 			{
 				Die();
@@ -147,6 +146,7 @@ namespace Assets.Scripts.Player_script
 			if (_animation.GetState() != PlayerState.Block && isImmortal == false && health.currentHealth > 0)
 			{
 				base.ReceiveDamage(damage);
+				UIManager._singleton.UpdatePlayerUI("Heart", true, health.currentHealth);
 				_animation.Hit();
 			}
 		}
@@ -154,7 +154,13 @@ namespace Assets.Scripts.Player_script
 		public void HealDamage(int heal)
 		{
 			health.RecoverHealth(heal);
-			UIManager._singleton.UpdatePlayerUI("Heart",false, heal);
+			UIManager._singleton.UpdatePlayerUI("Heart",false, health.currentHealth);
+		}
+
+		public void GainLife()
+		{
+			totalLife += 1;
+			UIManager._singleton.UpdatePlayerLife(false, totalLife);
 		}
 
 		public void endAttacking()
@@ -232,7 +238,7 @@ namespace Assets.Scripts.Player_script
 		{
 			if (collision.gameObject.CompareTag("Collectable"))
 			{
-				Destroy(collision.gameObject);
+				GameManager._singleton.GetCoins(collision);
 			}
 
 			if(collision.gameObject.CompareTag("BossZone"))
@@ -244,10 +250,7 @@ namespace Assets.Scripts.Player_script
 			{
 				GameManager._singleton.SecretZoneActivate();
 			}
-		}
 
-		private void OnTriggerExit2D(Collider2D collision)
-		{
 			if (collision.gameObject.CompareTag("Pit"))
 			{
 				this.transform.position = collision.transform.position;

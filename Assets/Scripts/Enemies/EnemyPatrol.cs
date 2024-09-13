@@ -13,11 +13,13 @@ using Random = UnityEngine.Random;
 public class EnemyPatrol : MonoBehaviour
 {
 	[SerializeField] private Player _target;
-	[SerializeField] private bool IsIdle;
+	[SerializeField] private bool IsFlying;
+	[SerializeField] private Transform pointA;
+	[SerializeField] private Transform pointB;
 
 	private Enemy _enemy;
+	private FlyingEnemy _flyEnemy;
 	private bool InPatrol;
-	private Rigidbody2D rb_enemy;
 
 	private Vector3 randomPosition;
 	private Vector2 direction;
@@ -25,11 +27,15 @@ public class EnemyPatrol : MonoBehaviour
 	private void Start()
 	{
 		_target = FindObjectOfType<Player>();
-		_enemy = GetComponent<Enemy>();
-		if(IsIdle)
+		if(IsFlying)
 		{
-			rb_enemy = _enemy.GetComponent<Rigidbody2D>();
+			_flyEnemy = GetComponent<FlyingEnemy>();
 		}
+		else
+		{
+			_enemy = GetComponent<Enemy>();
+		}
+
 		InPatrol = true;
 	}
 
@@ -37,23 +43,28 @@ public class EnemyPatrol : MonoBehaviour
 	{
 		if(!InPatrol || _enemy.GetIsBoss())
 		{
-			if(IsIdle)
-			{
-				rb_enemy.constraints = RigidbodyConstraints2D.None;
-			}
 			direction = _target.transform.position - transform.position;
-			_enemy.Move(direction.normalized, _target);
+			if(IsFlying)
+			{
+				_flyEnemy.GetComponent<EnemyAnimation>().Run();
+				_flyEnemy.Chase(_target.transform.position, _target);
+			}
+			else
+			{
+				_enemy.Move(direction.normalized, _target);
+			}
 		}
 		else
 		{
 			InPatrol = true;
-			if(!IsIdle)
+			if(!IsFlying)
 			{
 				Roaming();
 			}
 			else
 			{
-				rb_enemy.constraints = RigidbodyConstraints2D.FreezeAll;
+				_flyEnemy.GetComponent<EnemyAnimation>().Ready();
+				_flyEnemy.ReturnStartPosition(_target);
 			}
 
 		}
@@ -63,6 +74,10 @@ public class EnemyPatrol : MonoBehaviour
 	{
 		randomPosition = RandomPosition();
 		direction = randomPosition - transform.position;
+
+		if(Vector2.Distance(direction, pointA.position) < 0.5f) direction = pointB.position - transform.position;
+		if(Vector2.Distance(direction, pointB.position) < 0.5f) direction = pointA.position - transform.position;
+
 		_enemy.Move(direction, _target);
 	}
 

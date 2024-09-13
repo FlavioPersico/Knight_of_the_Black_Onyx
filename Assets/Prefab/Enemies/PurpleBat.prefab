@@ -40,10 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5197541462379281746}
-  - component: {fileID: 990589829320047277}
+  - component: {fileID: 173064261817144006}
   - component: {fileID: 4256286563408768534}
+  - component: {fileID: 926432664242317144}
   - component: {fileID: 6140170676351411627}
-  - component: {fileID: 712181475393711539}
   - component: {fileID: 5197541462379281744}
   - component: {fileID: 8408193709020229851}
   - component: {fileID: 8408193709020229850}
@@ -72,7 +72,7 @@ Transform:
   - {fileID: 5197541462452923992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &990589829320047277
+--- !u!114 &173064261817144006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5197541462379281757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d63d75aae8a91da4db1cd39b2577a3e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2db17852391bbf84b8a50d3ed58bc682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb_character: {fileID: 8408193709020229850}
@@ -102,6 +102,8 @@ MonoBehaviour:
     m_Bits: 64
   enemyHealth: 1
   enemyPoints: 20
+  startingPosition: {fileID: 0}
+  target: {fileID: 0}
 --- !u!114 &4256286563408768534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,23 +118,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Input: {x: 0, y: 0}
   IsGrounded: 0
-  Acceleration: 7
-  MaxSpeed: 5
+  Acceleration: 2
+  MaxSpeed: 3
   JumpForce: 1000
-  Gravity: 70
---- !u!114 &6140170676351411627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197541462379281757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 305bdfc746cf09b428674b5a4319f61a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &712181475393711539
+  Gravity: 0
+--- !u!114 &926432664242317144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +135,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  IsIdle: 1
+  IsFlying: 1
+  pointA: {fileID: 0}
+  pointB: {fileID: 0}
+--- !u!114 &6140170676351411627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197541462379281757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305bdfc746cf09b428674b5a4319f61a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &5197541462379281744
 Animator:
   serializedVersion: 5
@@ -220,7 +224,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5197541462379281757}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -238,7 +242,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!82 &3963274166306997485
 AudioSource:
   m_ObjectHideFlags: 0
@@ -250,7 +254,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

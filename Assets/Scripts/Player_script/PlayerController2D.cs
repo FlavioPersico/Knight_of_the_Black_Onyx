@@ -27,6 +27,7 @@ namespace Assets.Scripts.Player_script
 		 private bool _jump;
 		 private bool _crouch;
 		 private bool _climb;
+		private float fallTime; 
 
 		 public void Start()
 		 {
@@ -42,7 +43,7 @@ namespace Assets.Scripts.Player_script
 
 			if (state == PlayerState.Die || state == PlayerState.Block /*|| state == PlayerState.Climb*/) return;
 
-			if(state == PlayerState.Climb)
+			if (state == PlayerState.Climb)
 			{
 				_rigidbody.gravityScale = 0f;
 				_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, Input.y * MaxSpeed);
@@ -140,6 +141,7 @@ namespace Assets.Scripts.Player_script
 				 {
 					 _jump = true;
 					 _animation.Fall();
+					fallTime = Time.time;
 				}
 			 }
 
