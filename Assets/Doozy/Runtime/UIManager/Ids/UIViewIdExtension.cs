@@ -14,6 +14,10 @@ namespace Doozy.Runtime.UIManager.Containers
 {
     public partial class UIView
     {
+        public static IEnumerable<UIView> GetViews(UIViewId.GameUI id) => GetViews(nameof(UIViewId.GameUI), id.ToString());
+        public static void Show(UIViewId.GameUI id, bool instant = false) => Show(nameof(UIViewId.GameUI), id.ToString(), instant);
+        public static void Hide(UIViewId.GameUI id, bool instant = false) => Hide(nameof(UIViewId.GameUI), id.ToString(), instant);
+
         public static IEnumerable<UIView> GetViews(UIViewId.MainMenu id) => GetViews(nameof(UIViewId.MainMenu), id.ToString());
         public static void Show(UIViewId.MainMenu id, bool instant = false) => Show(nameof(UIViewId.MainMenu), id.ToString(), instant);
         public static void Hide(UIViewId.MainMenu id, bool instant = false) => Hide(nameof(UIViewId.MainMenu), id.ToString(), instant);
@@ -24,6 +28,12 @@ namespace Doozy.Runtime.UIManager
 {
     public partial class UIViewId
     {
+        public enum GameUI
+        {
+            GameOver,
+            HistoryScreen
+        }
+
         public enum MainMenu
         {
             BFSPresents,

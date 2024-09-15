@@ -8,11 +8,13 @@ using UnityEngine;
 public class BossEnemy : Enemy
 {
 	[SerializeField] private string _bossName;
+	[SerializeField] private string _bossLevel;
 	// Start is called before the first frame update
 	protected override void Start()
 	{
 		base.Start();
 		BossLife();
+		GameManager._singleton.SetTalePart(_bossLevel);
 	}
 
 	public override void ChangeHealth(int health)

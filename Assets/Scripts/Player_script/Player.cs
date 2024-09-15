@@ -89,11 +89,11 @@ namespace Assets.Scripts.Player_script
 		public override void Die()
 		{
 			_animation.Die();
-			totalLife -= 1;
 			if(totalLife <= 0)
 			{
+				GameManager._singleton.UpdateHiScore();
 				_audioSource.PlayOneShot(_deathClip, 1f);
-				Destroy(gameObject, 3f);
+				Destroy(gameObject,2f);
 			}
 			else
 			{
@@ -134,10 +134,12 @@ namespace Assets.Scripts.Player_script
 		public void ChangeHealth(int health)
 		{
 			Debug.Log($"Health Changed! {health}");
+			UIManager._singleton.UpdatePlayerUI("Heart", true, health);
 			if (health <= 0)
 			{
-				Die();
+				totalLife -= 1;
 				UIManager._singleton.UpdatePlayerUI("Life", true, totalLife);
+				Die();
 			}
 		}
 
@@ -146,7 +148,6 @@ namespace Assets.Scripts.Player_script
 			if (_animation.GetState() != PlayerState.Block && isImmortal == false && health.currentHealth > 0)
 			{
 				base.ReceiveDamage(damage);
-				UIManager._singleton.UpdatePlayerUI("Heart", true, health.currentHealth);
 				_animation.Hit();
 			}
 		}

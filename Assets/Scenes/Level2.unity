@@ -7811,6 +7811,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1633319850}
+    - target: {fileID: 8742693455326269566, guid: b4d3583199dcfb24cb9bbc85d2a81632, type: 3}
+      propertyPath: _bossLevel
+      value: Level2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16171,6 +16175,10 @@ MonoBehaviour:
   _grassFloorClip: {fileID: 8300000, guid: e0a93f754d7311c498328a49e768d900, type: 3}
   _bossClip: {fileID: 8300000, guid: 5b06e933bad2cbf49889c561eabd2049, type: 3}
   _lootPool: {fileID: 0}
+  _textScoreGameOver: {fileID: 0}
+  _textHiScoreGameOver: {fileID: 0}
+  _recordGameOver: {fileID: 0}
+  _taleText: {fileID: 0}
   stepSoundControl: 0.3
 --- !u!4 &1658109420
 Transform:

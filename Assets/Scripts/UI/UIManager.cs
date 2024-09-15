@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
@@ -13,19 +14,12 @@ namespace Assets.Scripts.UI
 		[SerializeField] private UIPlayerController _playerUIController;
 		[SerializeField] private TextMeshProUGUI _textScore;
 		[SerializeField] private TextMeshProUGUI _textHiScore;
-		private int _score = 0;
-		private string scoreFormat = "0000";
 
 		public static UIManager _singleton;
 
 		private void Awake()
 		{
 			_singleton = this;
-		}
-
-		private void Start()
-		{
-			UpdateHiScore();
 		}
 
 		public void UpdatePlayerUI(string lifeOrHeart, bool lost, int paramValue)
@@ -76,21 +70,14 @@ namespace Assets.Scripts.UI
 			}
 		}
 
-		public void UpdateScore(int valueScore)
+		public void UpdateScore(int valueScore, string scoreFormat)
 		{
-			_score += valueScore;
-			_textScore.text = _score.ToString(scoreFormat);
+			_textScore.text = valueScore.ToString(scoreFormat);
 		}
 
-		public void UpdateHiScore()
+		public void UpdateHiScore(int valueHiScore, string scoreFormat)
 		{
-			int hiScore = PlayerPrefs.GetInt("HiScore");
-			if (_score > hiScore)
-			{
-				PlayerPrefs.SetInt("HiScore", _score);
-				hiScore = _score;
-			}
-			_textHiScore.text = hiScore.ToString(scoreFormat);
+			_textHiScore.text = valueHiScore.ToString(scoreFormat);
 		}
 
 		public void AddBossName(string bossName)

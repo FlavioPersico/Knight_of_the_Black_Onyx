@@ -102,7 +102,7 @@ namespace Assets.Scripts.Enemies
 			_animation.Die();
 			_audioSource.PlayOneShot(_deathClip, 1f);
 			EffectManager.Instance.Blink(this);
-			UIManager._singleton.UpdateScore(enemyPoints);
+			GameManager._singleton.UpdateScore(enemyPoints);
 			EffectManager.Instance.Blink(this);
 			Destroy(gameObject,1f);
 			GenerateRandomLoot();
@@ -139,8 +139,11 @@ namespace Assets.Scripts.Enemies
 		private void GenerateRandomLoot()
 		{
 			Potions loot = GameManager._singleton.ReturnLoot();
-			var cloneLoot = Instantiate(loot, transform.position, Quaternion.identity);
-			cloneLoot.name = loot.name;
+			if (loot != null)
+			{
+				var cloneLoot = Instantiate(loot, transform.position, Quaternion.identity);
+				cloneLoot.name = loot.name;
+			}
 		}
 		private void OnDrawGizmos()
 		{

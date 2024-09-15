@@ -15,7 +15,13 @@ MonoBehaviour:
   Database:
     Items:
     - Category: GameUI
+      Name: MainMenu
+    - Category: GameUI
       Name: NextText
+    - Category: GameUI
+      Name: Quit
+    - Category: GameUI
+      Name: Retry
     - Category: GameUI
       Name: SideMenuInventory
     - Category: GameUI
