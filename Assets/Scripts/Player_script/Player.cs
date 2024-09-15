@@ -7,7 +7,6 @@ using UnityEngine.InputSystem.XR;
 using static UnityEngine.GraphicsBuffer;
 using System.Collections;
 using System.Threading;
-using TMPro.EditorUtilities;
 
 namespace Assets.Scripts.Player_script
 {
