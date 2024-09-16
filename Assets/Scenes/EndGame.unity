@@ -761,7 +761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66df61faaa5f7c745b8a62197e04ff5b, type: 2}
   m_sharedMaterial: {fileID: -7131008272910510620, guid: 66df61faaa5f7c745b8a62197e04ff5b, type: 2}
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   AutoSelectTarget: {fileID: 0}
   Id:
     Category: GameUI
-    Name: HistoryScreen
+    Name: GameEnd
     Custom: 0
   TargetOrientation: 0
 --- !u!114 &1260562126
@@ -2095,7 +2095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 784, y: -452}
+  m_AnchoredPosition: {x: -2, y: -452}
   m_SizeDelta: {x: -1791, y: -1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569027331
@@ -2195,7 +2195,7 @@ MonoBehaviour:
   DisableWhenInCooldown: 0
   Id:
     Category: GameUI
-    Name: NextText
+    Name: MainMenu
     Custom: 0
 --- !u!114 &1569027332
 MonoBehaviour:
@@ -3867,15 +3867,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Year XXXX\r\n\r\nThe Kingdom of Laruria had been peaceful and beautiful
-    for centuries, but nothing is eternal, and wars began to spread throughout the
-    kingdom. These wars started to undermine the peace that had been built over the
-    centuries. The cause of this threat was the Dark Lord Monster, who was on a crusade
-    to destroy all believers of gods other than Sigmon. The only way to defeat the
-    Dark Lord was through a legend\u2014an old tale forgotten by many and known by
-    none: The Black Onyx Knights!\r\n\r\nBelieving in this legend, the squire Lino
-    began his adventure to collect all the Black Onyx legendary armor and weapons
-    so that he could confront the Dark Lord Monster."
+  m_text: "The princess\u2014oops\u2014Monster Lord is in another castle...\r\n\r\nAfter
+    defeating the monster Sapinhoh, our hero gathered all the legendary armors. However,
+    he discovered that his journey was far from over. The Monster Lord is in the
+    distant and dangerous lands of Muito Longe. Determined to defeat it, he began
+    his new adventure...\r\n\r\nThank you for playing my game. I hope you enjoyed
+    it. I will continue to develop it and hopefully make it even better."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66df61faaa5f7c745b8a62197e04ff5b, type: 2}
   m_sharedMaterial: {fileID: -7131008272910510620, guid: 66df61faaa5f7c745b8a62197e04ff5b, type: 2}
@@ -3902,7 +3899,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.65
+  m_fontSize: 69.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

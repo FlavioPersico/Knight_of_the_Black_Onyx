@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8384370886641614674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa9fac3374aea542bc6c2ebda1da399, type: 3}
+  m_Name: Load Scene
+  m_EditorClassIdentifier: 
+  FlowGraphId: 69ddc8a8-57c2-4e6b-89ac-c886105dbc08
+  NodeId: 53908456-01e5-470f-9609-dd2ce1d6fc13
+  NodeType: 0
+  NodeName: Load Scene
+  NodeDescription: 
+  InputPorts:
+  - NodeId: 53908456-01e5-470f-9609-dd2ce1d6fc13
+    PortId: cac74612-48ba-49fa-be6f-12c3af608e04
+    Direction: 0
+    Capacity: 1
+    Connections:
+    - 94401563-7baf-4ab0-8455-f35bf2987d1c
+    Value: 
+    ValueTypeQualifiedName: 
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  OutputPorts:
+  - NodeId: 53908456-01e5-470f-9609-dd2ce1d6fc13
+    PortId: 12c30b82-7d98-4459-978d-034b89581e57
+    Direction: 1
+    Capacity: 0
+    Connections:
+    - 89a91a7f-2cea-446f-b5e1-d206ed1ce9b5
+    Value: 
+    ValueTypeQualifiedName: 
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  RunUpdate: 0
+  RunFixedUpdate: 0
+  RunLateUpdate: 0
+  NodeState: 0
+  CanBeDeleted: 1
+  Passthrough: 1
+  ClearGraphHistory: 0
+  Position: {x: 1369.3875, y: 47.999996}
+  GetSceneBy: 0
+  LoadSceneMode: 0
+  AllowSceneActivation: 1
+  SceneActivationDelay: 0.2
+  SceneBuildIndex: 0
+  SceneName: MainMenu
+  WaitForSceneToLoad: 1
+  PreventLoadingSameScene: 1
+  ConnectProgressor: 0
+  ProgressorId:
+    Category: None
+    Name: None
+    Custom: 0
 --- !u!114 &-7815979227452867118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,8 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02761efe598a45c98fa1baf4d446c6a7, type: 3}
   m_Name: GameGraph
   m_EditorClassIdentifier: 
-  EditorPosition: {x: 149, y: 315, z: 0}
-  EditorScale: {x: 0.2471847, y: 0.2471847, z: 1}
+  EditorPosition: {x: -257, y: 235, z: 0}
+  EditorScale: {x: 0.49717674, y: 0.49717674, z: 1}
   Id: 69ddc8a8-57c2-4e6b-89ac-c886105dbc08
   GraphName: GameGraph
   GraphDescription: 
@@ -572,6 +632,8 @@ MonoBehaviour:
   - {fileID: 2239328209410839219}
   - {fileID: -5774382934634704201}
   - {fileID: 7697019860342403673}
+  - {fileID: 8119560763656943760}
+  - {fileID: -8384370886641614674}
   RootNode: {fileID: -5518058580458848084}
   ActiveNode: {fileID: 0}
 --- !u!114 &153634720377244760
@@ -790,7 +852,7 @@ MonoBehaviour:
     Direction: 1
     Capacity: 0
     Connections:
-    - 89a91a7f-2cea-446f-b5e1-d206ed1ce9b5
+    - 26d91996-06c9-4fe9-bc4a-10fb2160a650
     Value: 
     ValueTypeQualifiedName: 
     CanBeDeleted: 0
@@ -808,7 +870,7 @@ MonoBehaviour:
   AllowSceneActivation: 1
   SceneActivationDelay: 0.2
   SceneBuildIndex: 0
-  SceneName: Game
+  SceneName: EndGame
   WaitForSceneToLoad: 1
   PreventLoadingSameScene: 1
   ConnectProgressor: 0
@@ -856,10 +918,10 @@ MonoBehaviour:
   Trigger: 0
   SignalPayload:
     StreamId:
-      Category: GameLevels
-      Name: GameOver
+      Category: None
+      Name: None
       Custom: 0
-    SignalValueType: 2
+    SignalValueType: 0
     IntegerValue: 0
     BooleanValue: 1
     FloatValue: 0
@@ -905,7 +967,7 @@ MonoBehaviour:
     Direction: 0
     Capacity: 1
     Connections:
-    - cfbbea56-19b5-4214-8c8c-9a02971ce549
+    - 12c30b82-7d98-4459-978d-034b89581e57
     Value: 
     ValueTypeQualifiedName: 
     CanBeDeleted: 0
@@ -927,7 +989,7 @@ MonoBehaviour:
   CanBeDeleted: 1
   Passthrough: 1
   ClearGraphHistory: 0
-  Position: {x: 1111, y: 48.000004}
+  Position: {x: 1625.3157, y: 47.999996}
   GetSceneBy: 0
   SceneBuildIndex: 0
   SceneName: Level3
@@ -1429,6 +1491,71 @@ MonoBehaviour:
     Category: None
     Name: None
     Custom: 0
+--- !u!114 &8119560763656943760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c01f9a7d07f5c04a9f277379e94a10b, type: 3}
+  m_Name: UI
+  m_EditorClassIdentifier: 
+  FlowGraphId: 69ddc8a8-57c2-4e6b-89ac-c886105dbc08
+  NodeId: d1b33502-7d85-434e-ad87-5707a741f9a1
+  NodeType: 0
+  NodeName: HistoryView
+  NodeDescription: 
+  InputPorts:
+  - NodeId: d1b33502-7d85-434e-ad87-5707a741f9a1
+    PortId: 26d91996-06c9-4fe9-bc4a-10fb2160a650
+    Direction: 0
+    Capacity: 1
+    Connections:
+    - cfbbea56-19b5-4214-8c8c-9a02971ce549
+    Value: '{"CanGoBack":false}'
+    ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.GoBackInputPortData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  OutputPorts:
+  - NodeId: d1b33502-7d85-434e-ad87-5707a741f9a1
+    PortId: 94401563-7baf-4ab0-8455-f35bf2987d1c
+    Direction: 1
+    Capacity: 0
+    Connections:
+    - cac74612-48ba-49fa-be6f-12c3af608e04
+    Value: '{"Trigger":2,"TimeDelay":3.0,"SignalPayload":{"StreamId":{"Category":"None","Name":"None","Custom":false},"SignalValueType":0,"IntegerValue":0,"BooleanValue":false,"FloatValue":0.0,"StringValue":"","ColorValue":{"r":0.0,"g":0.0,"b":0.0,"a":0.0},"Vector2Value":{"x":0.0,"y":0.0},"Vector3Value":{"x":0.0,"y":0.0,"z":0.0},"Vector4Value":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},"ButtonId":{"Category":"GameUI","Name":"MainMenu","Custom":false},"ToggleId":{"Category":"None","Name":"None","Custom":false},"CommandToggle":2,"ViewId":{"Category":"None","Name":"None","Custom":false},"CommandShowHide":0}'
+    ValueTypeQualifiedName: Doozy.Runtime.UIManager.Nodes.PortData.UIOutputPortData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    CanBeDeleted: 0
+    CanBeReordered: 0
+  RunUpdate: 0
+  RunFixedUpdate: 0
+  RunLateUpdate: 0
+  NodeState: 0
+  CanBeDeleted: 1
+  Passthrough: 0
+  ClearGraphHistory: 0
+  Position: {x: 1150, y: 47.999985}
+  OnEnterShowViews:
+  - Id:
+      Category: GameUI
+      Name: GameEnd
+      Custom: 0
+    Mode: 0
+  OnEnterHideViews: []
+  OnExitShowViews: []
+  OnExitHideViews:
+  - Id:
+      Category: GameUI
+      Name: GameEnd
+      Custom: 0
+    Mode: 0
+  OnEnterHideAllViews: 0
+  OnExitHideAllViews: 0
 --- !u!114 &8447621740459690382
 MonoBehaviour:
   m_ObjectHideFlags: 0

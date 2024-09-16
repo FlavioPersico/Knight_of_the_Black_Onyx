@@ -30,6 +30,7 @@ namespace Doozy.Runtime.UIManager
     {
         public enum GameUI
         {
+            GameEnd,
             GameOver,
             HistoryScreen
         }
